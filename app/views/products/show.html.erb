@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<section>
+  <%= render @product %>
+<section>
+
+<section>
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+</section>
+
+<nav>
+  <%= button_to "Destroy this product", @product, method: :delete, class: 'secondary' %>
+</nav>
