@@ -17,6 +17,26 @@
   </div>
 
   <div>
+    <%= form.label :image_original, style: "display: block" %>
+
+    <%= form.file_field :image_original, class: "cropper-field" %>
+
+    <div class="cropper-controls">
+      <%= form.fields_for :image_cropable  do |cropper| %>
+        <%= cropper.hidden_field :x %>
+        <%= cropper.hidden_field :y %>
+        <%= cropper.hidden_field :scale %>
+        <%= cropper.color_field :background_color %>
+      <% end %>
+
+      <button id="center">center</button>
+      <button id="fill">fill</button>
+    </div>
+
+    <div class="cropper-container"></div>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
