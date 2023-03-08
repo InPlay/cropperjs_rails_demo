@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:stevenbarragan/croppable.git
+  revision: e7450d6c9a437c53e1a157998d85c80f3245e989
+  specs:
+    croppable (0.1.0)
+      image_processing (~> 1.2)
+      rails (>= 7.0.4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,7 +91,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     coderay (1.1.3)
-    concurrent-ruby (1.2.0)
+    concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -120,7 +128,7 @@ GEM
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    minitest (5.17.0)
+    minitest (5.18.0)
     msgpack (1.6.0)
     net-imap (0.3.4)
       date
@@ -136,6 +144,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-darwin)
       racc (~> 1.4)
+    pg (1.4.6)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -146,7 +155,7 @@ GEM
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.3)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (7.0.4.2)
@@ -195,8 +204,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.1-arm64-darwin)
-    sqlite3 (1.6.1-x86_64-darwin)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -231,17 +238,18 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  croppable!
   debug
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  pg (~> 1.4)
   pry-byebug
   puma (~> 5.0)
   rails (~> 7.0.4)
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data

@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.image_cropable = CropperDatum.new
   end
 
   def edit
@@ -20,8 +19,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
-    crop_image(product_params[:image_original].tempfile.path, @product.image_cropable)
 
     respond_to do |format|
       if @product.save
@@ -64,30 +61,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product)
-      .permit(:name, :image_original, image_cropable_attributes: [:x, :y, :scale, :background_color])
-  end
-
-  def crop_image(image_path, data)
-    vim_img = Vips::Image.new_from_file(image_path)
-
-    height = vim_img.height
-    width  = vim_img.width
-
-    x = (width  - (width  * data.scale)) / 2 + data.x
-    y = (height - (height * data.scale)) / 2 + data.y
-
-    background = data.background_color.remove("#").scan(/\w{2}/).map {|color| color.to_i(16) }
-    background_embed = background.dup
-    background_embed << 255 if vim_img.bands == 4
-
-    vim_img = vim_img.resize(data.scale)
-    vim_img = vim_img.embed(x, y, 300, 200, background: background_embed)
-
-    path = Tempfile.new('croped').path + ".jpg"
-
-    vim_img.write_to_file(path, background: background)
-
-    @product.image.attach(io: File.open(path), filename: "croped")
+    params.require(:product).permit(:name, :logo, :image)
   end
 end

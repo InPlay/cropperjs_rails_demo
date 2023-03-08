@@ -5,6 +5,7 @@ pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
+
 pin "cropperjs", to: "https://ga.jspm.io/npm:cropperjs@2.0.0-beta.2/dist/cropper.esm.raw.js"
 pin "@cropper/element", to: "https://ga.jspm.io/npm:@cropper/element@2.0.0-beta.2/dist/element.esm.raw.js"
 pin "@cropper/element-canvas", to: "https://ga.jspm.io/npm:@cropper/element-canvas@2.0.0-beta.2/dist/element-canvas.esm.raw.js"
@@ -18,4 +19,4 @@ pin "@cropper/element-viewer", to: "https://ga.jspm.io/npm:@cropper/element-view
 pin "@cropper/elements", to: "https://ga.jspm.io/npm:@cropper/elements@2.0.0-beta.2/dist/elements.esm.raw.js"
 pin "@cropper/utils", to: "https://ga.jspm.io/npm:@cropper/utils@2.0.0-beta.2/dist/utils.esm.raw.js"
 
-pin "cropper-setup"
+pin "croppable"

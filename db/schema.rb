@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_190707) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_165200) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,21 +42,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_190707) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "cropper_data", force: :cascade do |t|
+  create_table "croppable_data", force: :cascade do |t|
     t.string "croppable_type"
-    t.integer "croppable_id"
-    t.string "cropable_type"
-    t.integer "cropable_id"
+    t.bigint "croppable_id"
     t.string "name"
     t.integer "x"
     t.integer "y"
     t.float "scale"
     t.string "background_color"
-    t.integer "index"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cropable_type", "cropable_id"], name: "index_cropper_data_on_cropable"
-    t.index ["croppable_type", "croppable_id"], name: "index_cropper_data_on_croppable"
+    t.index ["croppable_type", "croppable_id"], name: "index_croppable_data_on_croppable"
   end
 
   create_table "products", force: :cascade do |t|
