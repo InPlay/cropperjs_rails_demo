@@ -10,5 +10,6 @@
 </section>
 
 <nav>
-  <%= button_to "Destroy this product", @product, method: :delete, class: 'secondary' %>
+  <%= button_to "Destroy this product", @product, method: :delete, class: 'secondary',
+    form: { data: { turbo_confirm: 'Are you sure?' } } %>
 </nav>
