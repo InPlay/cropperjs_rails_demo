@@ -7,14 +7,20 @@
   <p>
     <% if product.logo.present? %>
       <strong>logo:</strong>
-      <%= image_tag product.logo %>
+      <%= image_tag product.logo,
+        width: product.logo_croppable_setup[:width],
+        height: product.logo_croppable_setup[:height]
+      %>
     <% end %>
   </p>
 
   <p>
     <% if product.image.present? %>
       <strong>image:</strong>
-      <%= image_tag product.image %>
+      <%= image_tag product.image,
+        width: product.image_croppable_setup[:width],
+        height: product.image_croppable_setup[:height]
+      %>
     <% end %>
   </p>
 
