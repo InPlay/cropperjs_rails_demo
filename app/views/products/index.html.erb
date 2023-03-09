@@ -1,14 +1,48 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
+<nav>
+  <h1>Products</h1>
+
+  <%= link_to "New product", new_product_path %>
+</nav>
 
 <section id="products">
   <% @products.each do |product| %>
-    <div class="grid">
-      <%= render product %>
+    <div class="grid" style="text-align: center">
+      <span>Name:<br /><%= product.name %></span>
+      <span>
+        <div>Logo</div>
+        <%=
+          image_tag(
+            product.logo.variant(
+              resize_to_limit: [
+                product.logo_croppable_setup[:width] / 1.5,
+                product.logo_croppable_setup[:height] / 1.5
+              ]
+            ),
+            width: product.logo_croppable_setup[:width] / 3,
+            height: product.logo_croppable_setup[:height] / 3
+          )
+        %>
+      </span>
+
+      <span>
+        <div>Image</div>
+        <%=
+          image_tag(
+            product.image.variant(
+              resize_to_limit: [
+                product.image_croppable_setup[:width] / 1.5,
+                product.image_croppable_setup[:height] / 1.5
+              ]
+            ),
+            width: product.image_croppable_setup[:width] / 3,
+            height: product.image_croppable_setup[:height] / 3
+          )
+        %>
+      </span>
+
       <%= link_to "Show", product %>
     </div>
   <% end %>
 </section>
-
-<%= link_to "New product", new_product_path %>
