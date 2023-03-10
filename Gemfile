@@ -71,5 +71,4 @@ group :test do
   gem "webdrivers"
 end
 
-
-gem "croppable", git: "git@github.com:stevenbarragan/croppable.git"
+gem 'croppable'
